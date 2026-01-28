@@ -1,0 +1,21 @@
+client/
+├── public/                 # Static assets (favicon, robots.txt)
+├── src/
+│   ├── assets/             # Images, global fonts, icons
+│   ├── components/         # Reusable UI components (Atomic design)
+│   │   ├── common/         # Generic buttons, inputs (DaisyUI wrappers)
+│   │   └── navigation/     # Sidebar, Navbar, Footer
+│   ├── contexts/           # React Contexts (AuthContext, ThemeContext)
+│   ├── hooks/              # Custom hooks (useAuth, useFetch)
+│   ├── layouts/            # Layout wrappers (see Section 2)
+│   ├── pages/              # Page components (Mapped to Routes)
+│   │   ├── auth/           # Login, Register
+│   │   └── dashboard/      # Main Dashboard, Analytics, Profile
+│   ├── services/           # API integration (Axios/Fetch calls)
+│   ├── types/              # TypeScript interfaces (if using TS)
+│   ├── utils/              # Helper functions (date formatting, validators)
+│   ├── App.jsx             # Main App component
+│   └── main.jsx            # Entry point
+├── .env                    # Environment variables
+├── tailwind.config.js      # DaisyUI and Tailwind config
+└── vite.config.js          # Vite config
