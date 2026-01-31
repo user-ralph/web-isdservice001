@@ -14,23 +14,23 @@ export default function SideBar() {
       
       <ul className="menu bg-base-100 min-h-full w-80 p-4 shadow-xl">
         
-        {/* LOGO */}
+        {/* LOGO - Now Clickable Redirects to Dashboard */}
         <li className="mb-6">
-          <div className="flex justify-center hover:bg-transparent py-4">
+          <Link to="/dashboard" className="flex justify-center hover:bg-transparent py-4">
             <img 
               src={logo} 
               alt="MinebeaMitsumi Logo" 
               className="w-48 object-contain"
             />
-          </div>
+          </Link>
         </li>
 
-        {/* NESTED MENU: IT Assets Tracker */}
+        {/* NESTED MENU: IT Assets Manager */}
         <li>
           <details open>
             {/* Header: Blue */}
             <summary className="font-bold text-lg" style={{ color: brandColor }}>
-              IT Assets Tracker
+              IT Assets Manager
             </summary>
             <ul>
               {/* Sub-items: Gray */}
@@ -40,10 +40,23 @@ export default function SideBar() {
                 </Link>
               </li>
               <li>
-                <Link to="/dashboard/it_assets/tablets" style={{ color: grayText }}>
-                  Tablets
+                <Link to="/dashboard/it_assets/special_purpose" style={{ color: grayText }}>
+                  Special Purpose Devices
                 </Link>
               </li>
+                           
+              {/* --- ADDED NEW LINKS HERE --- */}
+              <li>
+                <Link to="/dashboard/it_assets/mini_pc" style={{ color: grayText }}>
+                  Mini PC
+                </Link>
+              </li>
+              <li>
+                <Link to="/dashboard/it_assets/peripherals" style={{ color: grayText }}>
+                  Peripherals
+                </Link>
+              </li>
+
             </ul>
           </details>
         </li>

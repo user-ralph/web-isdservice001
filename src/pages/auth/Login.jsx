@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 // Ensure this path matches where your image is actually located
 
-
 export default function Login() {
   const navigate = useNavigate(); // Hook to change pages
 
@@ -41,7 +40,8 @@ export default function Login() {
     <div className="min-h-screen flex items-center justify-center bg-base-200">
       
       {/* Main Card Component */}
-      <div className="card bg-base-100 w-96 shadow-sm">
+      {/* Added 'overflow-hidden' so the bottom bar respects the rounded corners */}
+      <div className="card bg-base-100 w-96 shadow-sm overflow-hidden">
         
         {/* Figure/Image Section */}
         <figure className="px-10 pt-10">
@@ -125,6 +125,10 @@ export default function Login() {
 
           </form>
         </div>
+
+        {/* Decorative Bottom Bar */}
+        <div className="h-2 w-full" style={{ backgroundColor: '#005bac' }}></div>
+        
       </div>
     </div>
   );

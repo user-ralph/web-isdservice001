@@ -6,16 +6,16 @@ export default function NewPCModal() {
 
   // State
   const [pcNumber, setPcNumber] = useState('');
-  const [pcName, setPcName] = useState(''); // State for PC Name
+  const [pcName, setPcName] = useState(''); 
 
   const handlePcNumberChange = (e) => {
-    // Only allow digits and limit to 5 characters
+    // Only allow digits
     const value = e.target.value.replace(/\D/g, ''); 
     
-    if (value.length <= 5) {
+    // UPDATED: Limit to 4 Digits
+    if (value.length <= 4) {
       setPcNumber(value);
-      // LOGIC: PC Name is the same as PC Number (P000 + digits)
-      // If value is empty, reset name, otherwise format it
+      // Auto-fill PC Name with P000 + 4 digits
       setPcName(value ? `P000${value}` : ''); 
     }
   };
@@ -69,7 +69,7 @@ export default function NewPCModal() {
                   <input 
                     type="text" 
                     className="grow bg-transparent focus:outline-none font-mono" 
-                    placeholder="XXXXX" 
+                    placeholder="XXXX"  // Updated Placeholder
                     value={pcNumber}
                     onChange={handlePcNumberChange}
                   />
@@ -82,7 +82,7 @@ export default function NewPCModal() {
                   <label className="label py-1"><span className="label-text font-medium">PC Name / Hostname</span></label>
                   <input 
                     type="text" 
-                    placeholder="e.g. P00012345" 
+                    placeholder="e.g. P0001234" 
                     className="input input-bordered input-sm w-full font-bold" 
                     value={pcName}
                     onChange={handlePcNameChange}

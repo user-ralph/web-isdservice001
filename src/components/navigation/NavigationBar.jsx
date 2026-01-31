@@ -1,5 +1,5 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom'; // Added Link import
 import { MdOutlineMenu } from "react-icons/md"; 
 import { BiSolidUserBadge } from "react-icons/bi"; 
 
@@ -30,10 +30,14 @@ export default function NavigationBar() {
           <MdOutlineMenu size={28} style={{ color: brandColor }} />
         </label>
 
-        {/* Brand Title */}
-        <a className="btn btn-ghost text-xl font-bold" style={{ color: brandColor }}>
+        {/* Brand Title - Now Clickable Redirects to Dashboard */}
+        <Link 
+          to="/dashboard" 
+          className="btn btn-ghost text-xl font-bold" 
+          style={{ color: brandColor }}
+        >
           MyISD Service
-        </a>
+        </Link>
       </div>
 
       {/* --- RIGHT SIDE: User Dropdown --- */}

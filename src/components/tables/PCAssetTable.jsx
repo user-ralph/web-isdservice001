@@ -68,26 +68,13 @@ export default function PCAssetTable() {
 
   return (
     <>
-      {/* CARD WRAPPER: 
-         - overflow-hidden: Prevents the card from expanding horizontally beyond screen.
-         - h-[calc(100vh-240px)]: Maintains the vertical fit logic.
-      */}
       <div className="card bg-base-100 shadow-sm h-[calc(100vh-240px)] flex flex-col border border-base-200 overflow-hidden w-full">
         
-        {/* TABLE WRAPPER:
-           - overflow-y-auto: Allows VERTICAL scroll only.
-           - overflow-x-hidden: Explicitly forbids horizontal scroll bars.
-        */}
         <div className="flex-1 overflow-y-auto overflow-x-hidden custom-scrollbar">
           
-          {/* TABLE ELEMENT:
-             - table-fixed: CRITICAL. This forces columns to respect the width classes and not expand based on content.
-             - w-full: Ensures it takes exactly 100% of the card width.
-          */}
           <table className="table table-fixed table-pin-rows table-zebra w-full">
             <thead className="text-gray-600 select-none z-10 text-xs">
               <tr className="bg-base-100 shadow-sm border-b">
-                {/* Fixed Percentage Widths (Total ~100%) */}
                 <th onClick={() => requestSort('pc_number')} className="w-[12%] cursor-pointer hover:bg-base-200 truncate" style={{ color: brandColor }}>PC # {getSortIcon('pc_number')}</th>
                 <th onClick={() => requestSort('pc_name')} className="w-[12%] cursor-pointer hover:bg-base-200 truncate">PC Name {getSortIcon('pc_name')}</th>
                 <th onClick={() => requestSort('model')} className="w-[15%] cursor-pointer hover:bg-base-200 truncate">Model {getSortIcon('model')}</th>
@@ -111,7 +98,6 @@ export default function PCAssetTable() {
                             {asset.user.charAt(0)}
                           </div>
                        </div>
-                       {/* truncate text if user name is too long */}
                        <span className="truncate" title={asset.user}>{asset.user}</span>
                     </div>
                   </td>

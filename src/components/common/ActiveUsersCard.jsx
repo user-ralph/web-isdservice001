@@ -3,12 +3,12 @@ import React, { useState, useMemo } from 'react';
 export default function ActiveUsersCard() {
   const brandColor = "#005bac";
 
-  // 2. Sorting State
+  // 1. Sorting State
   const [sortConfig, setSortConfig] = useState({ key: 'name', direction: 'ascending' });
 
   // Sorting Function
   const sortedUsers = useMemo(() => {
-    // 1. Updated Mock Data ("Busy" -> "Away")
+    // Mock Data including Online, Away, and Offline statuses
     const initialUsers = [
       { id: 1, name: "Ralph Vincent Arienza", role: "Cadet Engineer", status: "Online", location: "Building 9" },
       { id: 2, name: "Mary Grace Mariano", role: "Team Lead", status: "Away", location: "Building 2" },
@@ -26,6 +26,7 @@ export default function ActiveUsersCard() {
       { id: 14, name: "Karemelite Rosaceña", role: "Application Support", status: "Away", location: "Building 2" },
       { id: 15, name: "Felizardo Ordeniza", role: "Application Support", status: "Offline", location: "Building 10" },
     ];
+
     let sortableItems = [...initialUsers];
     if (sortConfig.key !== null) {
       sortableItems.sort((a, b) => {
@@ -99,7 +100,11 @@ export default function ActiveUsersCard() {
                   <td>
                     <div className="flex items-center gap-3">
                       <div className="avatar placeholder">
-                        <div className="bg-neutral text-neutral-content rounded-full w-8 h-8 flex items-center justify-center">
+                        {/* UPDATED: Applied brandColor background and white text */}
+                        <div 
+                          className="rounded-full w-8 h-8 flex items-center justify-center text-white"
+                          style={{ backgroundColor: brandColor }}
+                        >
                           <span className="text-xs">{user.name.charAt(0)}</span>
                         </div>
                       </div>
@@ -115,8 +120,6 @@ export default function ActiveUsersCard() {
                   <td>
                     {user.status === 'Online' && <span className="badge badge-success badge-xs gap-1 text-white px-2">Online</span>}
                     {user.status === 'Offline' && <span className="badge badge-ghost badge-xs gap-1 px-2">Offline</span>}
-                    
-                    {/* UPDATED: "Away" Status */}
                     {user.status === 'Away' && <span className="badge badge-warning badge-xs gap-1 text-white px-2">Away</span>}
                   </td>
                 </tr>
